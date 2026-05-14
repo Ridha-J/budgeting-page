@@ -11,6 +11,13 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  --income-color: #0d9488;
+  --expense-color: #e11d48;
+  --balance-color: #6366f1;
+  --teal-color: #14b8a6;
+  --rose-color: #f43f5e;
+  --indigo-color: #818cf8;
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;

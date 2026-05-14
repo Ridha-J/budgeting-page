@@ -154,8 +154,8 @@ nav a:hover {
   flex-wrap: wrap;
 
   position: sticky;
-  top: 57px;          /* must match your navbar's height */
-  z-index: 998;       /* just below navbar's z-index: 999 */
+  top: 57px;          
+  z-index: 998;       
   background-color: #0d0019;
 }
 
@@ -185,4 +185,80 @@ nav a:hover {
   border-bottom: 0.5 solid var(--color-background-tertiary);
   font-size: 14px;
   font-weight: 600;
+}
+
+.budget-tracker{
+  margin: 2rem auto;
+  background: var(--color-background-secondary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.budget-tracker h1{
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.budget-goal{
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--color-background-primary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.budget-goal h2{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.budget-goal input{
+  width: 100%;
+  padding: 8px 12px;
+  border: 0.5px solid #170739;
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--color-background-secondary);
+  color: white;
+}
+
+.budget-goal button{
+  margin-top: 0.75rem;
+  padding: 10px 16px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.budget-limits{
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--color-background-primary);
+  border-radius: 8px;
+}
+
+.budget-limits h2{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.limit-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 0.5px solid var(--color-background-tertiary);
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 0.5px solid var(--color-background-tertiary);
 }
