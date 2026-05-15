@@ -1,26 +1,28 @@
+/* ─── Reset ─────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
- 
+
 body {
   font-family: monospace;
-  background-color: #0d0019;   /* dark purple — matches your nav */
+  background-color: #0d0019;
   color: white;
   min-height: 100vh;
 }
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(21, 2, 37);
-    padding: 15px 50px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    font-family: monospace;
+/* ─── Navbar ─────────────────────────────────────────── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(21, 2, 37);
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  font-family: monospace;
 }
 
 nav a {
@@ -31,7 +33,7 @@ nav a {
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
 }
- 
+
 nav a:hover {
   background: rgba(255, 255, 255, 0.1);
   color: white;
@@ -41,6 +43,16 @@ nav a:hover {
   font-family: monospace;
   font-size: larger;
   font-weight: 600;
+}
+
+/* ─── Login ──────────────────────────────────────────── */
+.login-container {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background-color: #0d0019;
+padding: 2rem;
 }
 
 .login-card {
@@ -57,7 +69,7 @@ nav a:hover {
 .login-card h1 {
   color: black;
   font-size: 45px;
-  font-weight: 400px;
+  font-weight: 400;
   margin: 1;
 }
 
@@ -71,8 +83,8 @@ nav a:hover {
   color: #1a1a1a;
 }
 
-.login-card input:focus {
-  border-color: #6d28d9;  
+.login-card input:focus { 
+    border-color: #6d28d9; 
 }
 
 .login-card button {
@@ -86,17 +98,8 @@ nav a:hover {
   transition: background 0.2s;
 }
 
-.login-card button:hover {
-  background-color: #242323;
-}
-
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #0d0019;
-  padding: 2rem;
+.login-card button:hover { 
+    background-color: #242323; 
 }
 
 .switch {
@@ -108,28 +111,27 @@ nav a:hover {
   transition: color 0.2s;
 }
 
-.switch:hover {
-  color: #1a1a1a;
+.switch:hover { 
+    color: #1a1a1a; 
 }
 
-.login-container {
+/* ─── Tracker ────────────────────────────────────────── */
+.tracker-style {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #0d0019; /* your dark purple theme */
-}
-
-.page {
-  padding: 2rem 2.5rem;
-  color: white;
+  gap: 12px;
+  padding: 0.5rem 1.5rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 57px;
+  z-index: 998;
+  background-color: #0d0019;
 }
 
 .summary-card {
   flex: 1;
   background-color: rgb(28, 4, 48);
   border: 0.5px solid #170739;
-  border-top: 3px solid;
+  border-top: 3px solid;    /* color set inline — comes from prop */
   border-radius: 12px;
   padding: 1rem 2rem;
   min-width: 0;
@@ -144,121 +146,426 @@ nav a:hover {
 .summary-card-amount {
   font-size: 24px;
   font-weight: 600;
+  /* color set inline — comes from prop */
 }
 
-.tracker-style{
-  display: flex;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 1.5rem;
-  flex-wrap: wrap;
-
-  position: sticky;
-  top: 57px;          
-  z-index: 998;       
-  background-color: #0d0019;
-}
-
-.inputStyle{
-  width: 100%;
-  padding: 8px 12px;
-  border: 0.5px solid #170739;
-  border-radius: 8px;
-  font-size: 14px;
-  background: var(--color-background-secondary);
+/* ─── Page wrapper ───────────────────────────────────── */
+.page {
+  padding: 2rem 2.5rem;
   color: white;
-  margin-bottom: 0.75rem;
-  box-sizing: border-boxs;
 }
 
-.transaction-list {
-  flex: 1;
-  background-color: rgb(28, 4, 48);
-  border: 0.5px solid #170739;
-  border-radius: 12px;
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Floating + button (FAB) ────────────────────────── */
+.fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0d9488;
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.fab:hover { 
+    background: #0f766e; 
+}
+
+/* ─── Modal ──────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
   padding: 1rem;
-  overflow: hidden;
 }
 
-.transaction-list h1{
-  padding: 12px 1.25rem;
-  border-bottom: 0.5 solid var(--color-background-tertiary);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.budget-tracker{
-  margin: 2rem auto;
-  background: var(--color-background-secondary);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.modal-card {
+  background: #1c0430;
+  border-radius: 16px;
   padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
-.budget-tracker h1{
-  font-size: 40px;
-  font-weight: 600;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-.budget-goal{
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: var(--color-background-primary);
-  border-radius: 8px;
-  text-align: center;
-}
-
-.budget-goal h2{
-  font-size: 18px;
+.modal-title {
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: white;
+  margin: 0;
 }
 
-.budget-goal input{
+.modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: capitalize;
+  color: white;
+  transition: background 0.2s;
+}
+
+.type-btn-active-expense { 
+    background: #e11d48; 
+}
+
+.type-btn-active-income  { 
+    background: #0d9488; 
+}
+
+.type-btn-inactive       { 
+    background: #2a0a40; 
+}
+
+.modal-label {
+  font-size: 12px;
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-input {
   width: 100%;
   padding: 8px 12px;
-  border: 0.5px solid #170739;
+  border: 0.5px solid #2a0a40;
   border-radius: 8px;
   font-size: 14px;
-  background: var(--color-background-secondary);
+  background: #0d0019;
   color: white;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  font-family: monospace;
 }
 
-.budget-goal button{
-  margin-top: 0.75rem;
-  padding: 10px 16px;
-  background-color: #1a1a1a;
+.modal-input:focus {
+  outline: none;
+  border-color: #0d9488;
+}
+
+.modal-submit {
+  width: 100%;
+  padding: 10px;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 14px;
-  cursor: pointer;
-}
-
-.budget-limits{
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: var(--color-background-primary);
-  border-radius: 8px;
-}
-
-.budget-limits h2{
-  font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.modal-submit:hover        { 
+    opacity: 0.9; 
+}
+
+.modal-submit-expense      { 
+    background: #e11d48; 
+}
+
+.modal-submit-income       { 
+    background: #0d9488; 
+}
+
+/* ─── Home chart ─────────────────────────────────────── */
+.chart-card {
+  background: #1c0430;
+  border: 0.5px solid #2a0a40;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.chart-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
-.limit-item{
+.chart-legend {
   display: flex;
-  justify-content: space-between;
-  padding: 8px 12px;
-  border-bottom: 0.5px solid var(--color-background-tertiary);
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #9ca3af;
 }
 
-.transaction-row {
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legend-dot-income  { 
+    background: #0d9488; 
+}
+
+.legend-dot-expense { 
+    background: #e11d48; 
+}
+
+.chart-tooltip {
+  background: #1c0430;
+  border: 0.5px solid #2a0a40;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.chart-tooltip-label {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+}
+
+/* ─── Budget ─────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  border-bottom: 0.5px solid #2a0a40;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.2s;
+  font-family: monospace;
+}
+
+.tab-btn-active   { 
+    color: #0d9488; 
+    font-weight: 600; 
+    border-bottom: 2px solid #0d9488; 
+}
+
+.tab-btn-inactive { 
+    color: #9ca3af; 
+    font-weight: 400; 
+    border-bottom: 2px solid transparent; 
+}
+
+.budget-card {
+  background: #1c0430;
+  border: 0.5px solid #2a0a40;
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.budget-card-note {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.limit-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid #2a0a40;
+}
+
+.limit-row {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
+  color: white;
+}
+
+.limit-over { 
+    color: #e11d48; 
+}
+
+.limit-ok   { 
+    color: #9ca3af; 
+}
+
+.progress-track {
+  height: 7px;
+  background: #0d0019;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.edit-field { 
+    margin-bottom: 0.75rem; 
+}
+
+.edit-label {
+  font-size: 13px;
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.edit-input {
+  width: 100%;
   padding: 8px 12px;
-  border-bottom: 0.5px solid var(--color-background-tertiary);
+  border: 0.5px solid #2a0a40;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #0d0019;
+  color: white;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #0d9488;
+}
+
+.save-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 10px;
+  background: #0d9488;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.save-btn:hover { 
+    background: #0f766e; 
+}
+
+/* ─── Transactions ───────────────────────────────────── */
+.transaction-list {
+  background-color: rgb(28, 4, 48);
+  border: 0.5px solid #170739;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.txn-header {
+  padding: 12px 1.25rem;
+  border-bottom: 0.5px solid #2a0a40;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.txn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 1.25rem;
+  border-bottom: 0.5px solid #2a0a40;
+}
+
+.txn-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.txn-meta {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.txn-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.txn-amount {
+  font-weight: 600;
+}
+
+.txn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.txn-delete:hover { 
+    color: #e11d48; 
+}
+
+.txn-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
 }
