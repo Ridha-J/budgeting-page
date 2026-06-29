@@ -17,8 +17,7 @@ function LimitItem({ category, spent, limit }) {
           Rs.{spent} / Rs.{limit} {isOver && "⚠️ over"}
         </span>
       </div>
-      <div className="progress-track">
-        {/* width and background must stay inline — both are calculated values */}
+      <div className="progress-track">  
         <div className="progress-bar" style={{ width: `${pct}%`, background: barColor }} />
       </div>
     </div>
